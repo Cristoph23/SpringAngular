@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title>Crud Angular</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
+       
+      <script th:src="@{/main.js}"></script>
+      <link th:href="@{/main.css}" rel="stylesheet" />
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+       
+      <head>
+   <body ng-app="EmployeeManagement" ng-controller="EmployeeController">
+   	<div class="container">
+   	<br>
+   	<div class="alert alert-success">		
+      <h3 class="text-center">
+         MI Primer Crud Con AngularJS
+      </h3>
+    </div>  
+      <form ng-submit="submitEmployee()">
+      <div class="form-group">            
+       	<h4>Emp Id: {{employeeForm.empId}}</h4>
+      </div>  
+      <div class="form-group">        
+       	<h4>Emp Numero: </h4>
+       	<input type="text" ng-model="employeeForm.empNo" class="form-control" />
+      </div>
+      <div class="form-group">
+       	<h4>Emp Nombre: </h4>
+       	<input type="text" ng-model="employeeForm.empName" class="form-control" />
+      </div>          
+       	<input type="submit" value="Submit" class="btn btn-primary btn-block btn-lg" />
+      </form>
+      <br/>
+      <a class="create-button" ng-click="createEmployee()">Create Employee</a>
+      <table border="1" class="table">
+      <thead class="thead-dark">
+         <tr>
+            <th scope="col">Emp Id</th>
+            <th scope="col">Emp No</th>
+            <th scope="col">Emp Name</th>
+            <th scope="col">Opciones</th>
+         </tr>
+       </thead>
+         <!-- $scope.employees -->
+         <tr ng-repeat="employee in employees">
+            <td scope="row"> {{ employee.empId }}</td>
+            <td> {{ employee.empNo }}</td>
+            <td >{{ employee.empName }}</td>
+            <td>
+            <a ng-click="editEmployee(employee)" class="btn btn-warning">Edit</a>
+            <a ng-click="deleteEmployee(employee)" class="btn btn-danger">Delete</a>
+            </td>
+         </tr>
+      </table>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+   </body>
+</html>
